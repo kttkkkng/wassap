@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/user", require("./route/user"));
+app.use("/word", require("./route/word"));
 
 db.sequelize.sync().then((req) => {
     app.listen(PORT, () => console.log(`Backend started on port ${PORT}`))

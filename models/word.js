@@ -1,10 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
-    const user = sequelize.define("user", {
-        username: {
+    const word = sequelize.define("word", {
+        eng: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        password: {
+        thai: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
         freezeTableName: true
     });
 
-    user.associate = (models) => {
-        user.hasMany(models.history, {
-            foreignKey: "user_id",
+    word.associate = (models) => {
+        word.hasMany(models.history, {
+            foreignKey: "word_id",
         });
     };
 
-    return user;
+    return word;
 }
